@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 public class Task1 extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... strings) {
-doSomeThing();
+        doSomeThing();
         return "Hello world!";
     }
 
@@ -19,5 +19,10 @@ doSomeThing();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        System.out.println("receive:" + s);
     }
 }

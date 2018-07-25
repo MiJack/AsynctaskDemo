@@ -6,7 +6,7 @@ import android.os.AsyncTask;
  * @author Mi&Jack
  * @since 2018/7/25
  */
-public class Task12 extends AsyncTask<Integer, Void, String> {
+public class Task12 extends AsyncTask<Integer, Integer, String> {
 
     public void doSomeThing() {
         try {
@@ -23,7 +23,13 @@ public class Task12 extends AsyncTask<Integer, Void, String> {
         for (int i = 0; i < integers[0]; i++) {
             doSomeThing();
             sb.append(i);
+            publishProgress(i);
         }
         return sb.toString();
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        System.out.println("onProgressUpdate:" + values[0]);
     }
 }
